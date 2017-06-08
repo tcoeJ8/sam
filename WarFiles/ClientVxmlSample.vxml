@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml">
+	<form id="Welcome">
+	<var name="ANI"  expr="session.connection.remote.uri.substr(4,10)"/>
+	<var name="DID"  expr="session.connection.local.uri.substr(10,4)"/>
+	<var name="ConnectionID"  expr="session.com.genesyslab.sessionid"/>
+	<var name="SESSIONID"  expr="'{'+session.com.genesyslab.userdata['GVP-Session-ID'].substr(0,36)+'}'"/>	
+  	<subdialog name="Subdialog1Subdialog" src="http://192.168.100.179:8080/IM_Sprint/src-gen/A1000_StartCall.vxml">
+    		<param name="varActionParentId" expr="'A1000_Welcome'"/>			
+			<param name="appType" expr="'ADMIN'" />
+		</subdialog>
+	</form>
+	
+</vxml> 
